@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('description_1');
             $table->text('description_2');
-            $table->decimal('price');
+            $table->decimal('price', total: 15, places: 2);
             $table->integer('sale')->default(0);
-            $table->decimal('sale_price');
+            $table->decimal('sale_price', total: 15, places: 2);
             $table->unsignedInteger('stocks')->default(0);
             $table->enum('product_status', ['active', 'inactive']);
             $table->string('image')->nullable();

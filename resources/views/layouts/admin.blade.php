@@ -150,11 +150,26 @@
 							</li>
 						</ul>
 					</li>
-					<li class="{{ Request::segment(2) === 'product' ? 'active' : '' }}">
-						<a href="{{ route('admin.product') }}">
-							<i class="ion-ios-phone-portrait"></i> 
-							<span>Products</span> 
+					<li class="has-sub {{ Request::segment(2) === 'product' ? 'active' : '' }}">
+						<a href="javascript:;">
+							<b class="caret"></b>
+							<i class="ion-ios-phone-portrait"></i>
+							<span>Products</span>
 						</a>
+						<ul class="sub-menu">
+							<li>
+								<a href="{{ route('admin.product.create') }}">
+									<i class="ion-ios-phone-portrait"></i> 
+									<span>Add Product</span> 
+								</a>
+							</li>
+							<li>
+								<a href="{{ route('admin.product') }}">
+									<i class="ion-ios-phone-portrait"></i> 
+									<span>Products</span> 
+								</a>
+							</li>
+						</ul>
 					</li>
 					
 					<!-- begin sidebar minify button -->

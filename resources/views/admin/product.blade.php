@@ -71,7 +71,7 @@
                                     <td>{{ $item->price }}</td>
                                     <td>{{ $item->sale }} %</td>
                                     <td>{{ $item->stocks }}</td>
-                                    <td>{{ $item->product_status }}</td>
+                                    <td><span class="badge {{ $item->product_status == 'active' ? 'badge-success' : 'badge-secondary' }}">{{ $item->product_status }}</span></td>
                                     <td class="with-btn" nowrap="">
                                         <div style="display: flex; gap: 8px;">
                                             <a href="{{ route('admin.product.edit', ['product' => $item->id]) }}" class="btn btn-sm btn-primary width-60 m-r-2">Edit</a>

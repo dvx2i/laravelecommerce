@@ -300,62 +300,23 @@
     </div>
     <!-- END #trending-items -->
     
-    <!-- BEGIN #mobile-list -->
-    <div id="mobile-list" class="section-container p-t-0">
+    
+    <!-- BEGIN search-results -->
+    <div id="search-results" class="section-container">
         <!-- BEGIN container -->
         <div class="container">
-            <!-- BEGIN section-title -->
-            <h4 class="section-title clearfix">
-                <a href="#" class="pull-right">SHOW ALL</a>
-                Mobile Phones
-                <small>Shop and get your favourite phone at amazing prices!</small>
-            </h4>
-            <!-- END section-title -->
-            <!-- BEGIN category-container -->
-            <div class="category-container">
-                <!-- BEGIN category-sidebar -->
-                <div class="category-sidebar">
-                    <ul class="category-list">
-                        <li class="list-header">Top Categories</li>
-                        <li><a href="#">Microsoft</a></li>
-                        <li><a href="#">Samsung</a></li>
-                        <li><a href="#">Apple</a></li>
-                        <li><a href="#">Micromax</a></li>
-                        <li><a href="#">Karbonn</a></li>
-                        <li><a href="#">Intex</a></li>
-                        <li><a href="#">Sony</a></li>
-                        <li><a href="#">HTC</a></li>
-                        <li><a href="#">Asus</a></li>
-                        <li><a href="#">Nokia</a></li>
-                        <li><a href="#">Blackberry</a></li>
-                        <li><a href="#">All Brands</a></li>
-                    </ul>
-                </div>
-                <!-- END category-sidebar -->
-                <!-- BEGIN category-detail -->
-                <div class="category-detail">
-                    <!-- BEGIN category-item -->
-                    <a href="#" class="category-item full">
-                        <div class="item">
-                            <div class="item-cover">
-                                <img src="{{ asset('frontend/assets/img/product/product-samsung-s7-edge.jpg') }}" alt="" />
-                            </div>
-                            <div class="item-info bottom">
-                                <h4 class="item-title">Samsung Galaxy s7 Edge + Geat 360 + Gear VR</h4>
-                                <p class="item-desc">Redefine what a phone can do</p>
-                                <div class="item-price">$799.00</div>
-                            </div>
-                        </div>
-                    </a>
-                    <!-- END category-item -->
-                    <!-- BEGIN category-item -->
-                    <div class="category-item list">
+            <!-- BEGIN search-container -->
+            <div class="search-container">
+                <!-- BEGIN search-content -->
+                <div class="search-content">
+                    <!-- BEGIN search-item-container -->
+                    <div class="search-item-container">
                         <!-- BEGIN item-row -->
                         <div class="item-row">
                             <!-- BEGIN item -->
                             <div class="item item-thumbnail">
                                 <a href="product_detail.html" class="item-image">
-                                    <img src="{{ asset('frontend/assets/img/product/product-iphone.png') }}" alt="" />
+                                    <img src="../assets/img/product/product-iphone.png" alt="" />
                                     <div class="discount">15% OFF</div>
                                 </a>
                                 <div class="item-info">
@@ -371,14 +332,14 @@
                             <!-- BEGIN item -->
                             <div class="item item-thumbnail">
                                 <a href="product_detail.html" class="item-image">
-                                    <img src="{{ asset('frontend/assets/img/product/product-samsung-note5.png') }}" alt="" />
+                                    <img src="../assets/img/product/product-apple-tv.png" alt="" />
                                     <div class="discount">32% OFF</div>
                                 </a>
                                 <div class="item-info">
                                     <h4 class="item-title">
-                                        <a href="product.html">Samsung Galaxy Note 5<br />Black</a>
+                                        <a href="product.html">Apple TV<br />2016</a>
                                     </h4>
-                                    <p class="item-desc">Super. Computer. Now in two sizes.</p>
+                                    <p class="item-desc">The future of television is here.</p>
                                     <div class="item-price">$599.00</div>
                                     <div class="item-discount-price">$799.00</div>
                                 </div>
@@ -387,7 +348,7 @@
                             <!-- BEGIN item -->
                             <div class="item item-thumbnail">
                                 <a href="product_detail.html" class="item-image">
-                                    <img src="{{ asset('frontend/assets/img/product/product-iphone-se.png') }}" alt="" />
+                                    <img src="../assets/img/product/product-iphone-se.png" alt="" />
                                     <div class="discount">20% OFF</div>
                                 </a>
                                 <div class="item-info">
@@ -407,14 +368,14 @@
                             <!-- BEGIN item -->
                             <div class="item item-thumbnail">
                                 <a href="product_detail.html" class="item-image">
-                                    <img src="{{ asset('frontend/assets/img/product/product-zenfone2.png') }}" alt="" />
+                                    <img src="../assets/img/product/product-apple-watch.png" alt="" />
                                     <div class="discount">15% OFF</div>
                                 </a>
                                 <div class="item-info">
                                     <h4 class="item-title">
-                                        <a href="product_detail.html">Assus ZenFone 2<br />‏(ZE550ML)</a>
+                                        <a href="product_detail.html">Apple Watch<br />‏Sport Edition</a>
                                     </h4>
-                                    <p class="item-desc">See What Others Can’t See</p>
+                                    <p class="item-desc">You. At a glance.</p>
                                     <div class="item-price">$399.00</div>
                                     <div class="item-discount-price">$453.00</div>
                                 </div>
@@ -423,14 +384,14 @@
                             <!-- BEGIN item -->
                             <div class="item item-thumbnail">
                                 <a href="product_detail.html" class="item-image">
-                                    <img src="{{ asset('frontend/assets/img/product/product-xperia-z.png') }}" alt="" />
+                                    <img src="../assets/img/product/product-imac.png" alt="" />
                                     <div class="discount">32% OFF</div>
                                 </a>
                                 <div class="item-info">
                                     <h4 class="item-title">
-                                        <a href="product.html">Sony Xperia Z<br />Black Color</a>
+                                        <a href="product.html">21.5-inch iMac<br />with Retina Display</a>
                                     </h4>
-                                    <p class="item-desc">For unexpectedly beautiful moments</p>
+                                    <p class="item-desc">Retina. Now in colossal and ginormous.</p>
                                     <div class="item-price">$599.00</div>
                                     <div class="item-discount-price">$799.00</div>
                                 </div>
@@ -439,14 +400,14 @@
                             <!-- BEGIN item -->
                             <div class="item item-thumbnail">
                                 <a href="product_detail.html" class="item-image">
-                                    <img src="{{ asset('frontend/assets/img/product/product-lumia-532.png') }}" alt="" />
+                                    <img src="../assets/img/product/product-macbook-pro.png" alt="" />
                                     <div class="discount">20% OFF</div>
                                 </a>
                                 <div class="item-info">
                                     <h4 class="item-title">
-                                        <a href="product.html">Microsoft Lumia 531<br />Smartphone Orange</a>
+                                        <a href="product.html">MacBook Pro<br />with Retina Display</a>
                                     </h4>
-                                    <p class="item-desc">1 Year Local Manufacturer Warranty</p>
+                                    <p class="item-desc">Stunning Retina Display</p>
                                     <div class="item-price">$99.00</div>
                                     <div class="item-discount-price">$199.00</div>
                                 </div>
@@ -454,14 +415,112 @@
                             <!-- END item -->
                         </div>
                         <!-- END item-row -->
+                        <!-- BEGIN item-row -->
+                        <div class="item-row">
+                            <!-- BEGIN item -->
+                            <div class="item item-thumbnail">
+                                <a href="product_detail.html" class="item-image">
+                                    <img src="../assets/img/product/product-ipad-pro.png" alt="" />
+                                    <div class="discount">15% OFF</div>
+                                </a>
+                                <div class="item-info">
+                                    <h4 class="item-title">
+                                        <a href="product_detail.html">9.7-inch iPad Pro<br />32GB</a>
+                                    </h4>
+                                    <p class="item-desc">3D Touch. 12MP photos. 4K video.</p>
+                                    <div class="item-price">$649.00</div>
+                                    <div class="item-discount-price">$739.00</div>
+                                </div>
+                            </div>
+                            <!-- END item -->
+                            <!-- BEGIN item -->
+                            <div class="item item-thumbnail">
+                                <a href="product_detail.html" class="item-image">
+                                    <img src="../assets/img/product/product-mac-pro.png" alt="" />
+                                    <div class="discount">32% OFF</div>
+                                </a>
+                                <div class="item-info">
+                                    <h4 class="item-title">
+                                        <a href="product.html">Mac Pro<br />Quad-Core and Dual GPU</a>
+                                    </h4>
+                                    <p class="item-desc">Built for creativity on an epic scale.</p>
+                                    <div class="item-price">$2999.00</div>
+                                    <div class="item-discount-price">$2599.00</div>
+                                </div>
+                            </div>
+                            <!-- END item -->
+                            <!-- BEGIN item -->
+                            <div class="item item-thumbnail">
+                                <a href="product_detail.html" class="item-image">
+                                    <img src="../assets/img/product/product-ipad-air.png" alt="" />
+                                    <div class="discount">20% OFF</div>
+                                </a>
+                                <div class="item-info">
+                                    <h4 class="item-title">
+                                        <a href="product.html">iPad Air 2<br />32/64Gb</a>
+                                    </h4>
+                                    <p class="item-desc">Light. Heavyweight.</p>
+                                    <div class="item-price">$399.00</div>
+                                    <div class="item-discount-price">$459.00</div>
+                                </div>
+                            </div>
+                            <!-- END item -->
+                        </div>
+                        <!-- END item-row -->
                     </div>
-                    <!-- END category-item -->
+                    <!-- END search-item-container -->
+                    <!-- BEGIN pagination -->
+                    <ul class="pagination justify-content-center m-t-0">
+                        <li class="page-item disabled"><a href="javascript:;" class="page-link">Previous</a></li>
+                        <li class="page-item active"><a class="page-link" href="javascript:;">1</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:;">2</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:;">3</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:;">4</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:;">5</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:;">Next</a></li>
+                    </ul>
+                    <!-- END pagination -->
                 </div>
-                <!-- END category-detail -->
+                <!-- END search-content -->
+                <!-- BEGIN search-sidebar -->
+                <div class="search-sidebar">
+                    <h4 class="title">Filter By</h4>
+                    <form action="product.html" method="POST" name="filter_form">
+                        <div class="form-group">
+                            <label class="control-label">Keywords</label>
+                            <input type="text" class="form-control input-sm" name="keyword" value="Mobile Phones" placeholder="Enter Keywords" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Price</label>
+                            <div class="row row-space-0">
+                                <div class="col-md-5">
+                                    <input type="number" class="form-control input-sm" name="price_from" value="10" placeholder="Price From" />
+                                </div>
+                                <div class="col-md-2 text-center p-t-5 f-s-12 text-muted">to</div>
+                                <div class="col-md-5">
+                                    <input type="number" class="form-control input-sm" name="price_to" value="10000" placeholder="Price To" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-b-30">
+                            <button type="submit" class="btn btn-sm btn-theme btn-inverse"><i class="fa fa-search fa-fw mr-1 ml-n3"></i> FILTER</button>
+                        </div>
+                    </form>
+                    <h4 class="title m-b-0">Categories</h4>
+                    <ul class="search-category-list">
+                        <li><a href="#">iPhone <span class="pull-right">(10)</span></a></li>
+                        <li><a href="#">Mac <span class="pull-right">(15)</span></a></li>
+                        <li><a href="#">iPad <span class="pull-right">(32)</span></a></li>
+                        <li><a href="#">Watch <span class="pull-right">(4)</span></a></li>
+                        <li><a href="#">TV <span class="pull-right">(6)</span></a></li>
+                        <li><a href="#">Accessories <span class="pull-right">(38)</span></a></li>
+                    </ul>
+                </div>
+                <!-- END search-sidebar -->
             </div>
-            <!-- END category-container -->
+            <!-- END search-container -->
         </div>
         <!-- END container -->
     </div>
-    <!-- END #mobile-list -->
+    <!-- END search-results -->
 @endsection

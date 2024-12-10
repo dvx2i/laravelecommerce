@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AuthAdmin;
 use App\Models\Category;
@@ -15,9 +16,16 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/shop/products', [ShopController::class, 'product'])->name('shop.product');
+Route::get('/shop/product/{product_slug}', [ShopController::class, 'product_show'])->name('shop.product.show');
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
+    Route::get('/shop/cart', [ShopController::class, 'cart'])->name('shop.cart');
+    Route::post('/shop/cart', [ShopController::class, 'cart_store'])->name('shop.cart.store');
+    Route::get('/shop/orders', [ShopController::class, 'order'])->name('shop.order');
+    Route::post('/shop/order', [ShopController::class, 'order_store'])->name('shop.order.store');
+    Route::get('/shop/order/{order}', [ShopController::class, 'order_show'])->name('shop.order.show');
 });
 
 Route::middleware(['auth', AuthAdmin::class])->group(function(){
