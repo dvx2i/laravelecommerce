@@ -87,7 +87,7 @@
                             <div class="product-price">
                                 <div class="price">Rp. {{ number_format($product->sale_price, 2) }}</div>
                             </div>
-                            <button type="button" class="btn btn-inverse btn-theme btn-lg width-200" id="addToCart" data-product-id="{{ $product->id }}">ADD TO CART</button>
+                            <button type="button" class="btn {{ $product->stocks > 0 ? 'btn-inverse' : 'btn-grey' }}  btn-theme btn-lg width-200" id="addToCart" data-product-id="{{ $product->id }}">ADD TO CART</button>
                         </div>
                         <!-- END product-purchase-container -->
                     </div>

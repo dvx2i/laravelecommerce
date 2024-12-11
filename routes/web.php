@@ -3,13 +3,14 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AuthAdmin;
-use App\Models\Category;
-use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,9 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/shop/orders', [ShopController::class, 'order'])->name('shop.order');
     Route::post('/shop/order', [ShopController::class, 'order_store'])->name('shop.order.store');
     Route::get('/shop/order/{order}', [ShopController::class, 'order_show'])->name('shop.order.show');
+    Route::get('/shop/order_success/{order}', [ShopController::class, 'order_success'])->name('shop.order.success');
+    
+    Route::post('/payment/create_transaction', [PaymentController::class, 'create_transaction'])->name('payment.create_transaction');
 });
 
 Route::middleware(['auth', AuthAdmin::class])->group(function(){
@@ -53,4 +57,20 @@ Route::middleware(['auth', AuthAdmin::class])->group(function(){
     ->name('edit', 'admin.product.edit')
     ->name('update', 'admin.product.update')
     ->name('destroy', 'admin.product.destroy');
+    Route::post('/admin/product/update_status', [ProductController::class, 'update_status'])->name('admin.product.update_status');
+    Route::post('/admin/product/update_stock', [ProductController::class, 'update_stock'])->name('admin.product.update_stock');
+    
+    Route::resource('/admin/order', OrderController::class)
+    ->name('index', 'admin.order')
+    ->name('show', 'admin.order.show')
+    ->name('destroy', 'admin.order.destroy');
+    Route::post('/admin/order/update', [OrderController::class, 'update'])->name('admin.order.update');
+    
+    Route::resource('/admin/user', AdminUserController::class)
+    ->name('index', 'admin.user')
+    ->name('create', 'admin.user.create')
+    ->name('store', 'admin.user.store')
+    ->name('edit', 'admin.user.edit')
+    ->name('update', 'admin.user.update')
+    ->name('destroy', 'admin.user.destroy');
 });

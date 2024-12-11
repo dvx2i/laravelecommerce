@@ -11,6 +11,12 @@
                 @csrf
                 <!-- BEGIN checkout-body -->
                 <div class="checkout-body">
+                    @if(Session::has('status'))
+                        <div class="alert alert-danger fade show m-b-10">
+                            <span class="close" data-dismiss="alert">×</span>
+                            {{ Session::get('status') }}
+                        </div>
+                    @endif
                     <div class="table-responsive">
                         @if ($cart)
                         <table class="table table-cart">

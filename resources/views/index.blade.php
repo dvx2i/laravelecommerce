@@ -300,7 +300,6 @@
     </div>
     <!-- END #trending-items -->
     
-    
     <!-- BEGIN search-results -->
     <div id="search-results" class="section-container">
         <!-- BEGIN container -->
@@ -311,166 +310,35 @@
                 <div class="search-content">
                     <!-- BEGIN search-item-container -->
                     <div class="search-item-container">
-                        <!-- BEGIN item-row -->
-                        <div class="item-row">
-                            <!-- BEGIN item -->
-                            <div class="item item-thumbnail">
-                                <a href="product_detail.html" class="item-image">
-                                    <img src="../assets/img/product/product-iphone.png" alt="" />
-                                    <div class="discount">15% OFF</div>
-                                </a>
-                                <div class="item-info">
-                                    <h4 class="item-title">
-                                        <a href="product_detail.html">iPhone 6s Plus<br />16GB</a>
-                                    </h4>
-                                    <p class="item-desc">3D Touch. 12MP photos. 4K video.</p>
-                                    <div class="item-price">$649.00</div>
-                                    <div class="item-discount-price">$739.00</div>
-                                </div>
+                        @foreach ($products->chunk(3) as $productRow)
+                            <div class="item-row">
+                                @foreach ($productRow as $product)
+                                    <div class="item item-thumbnail">
+                                        <a href="{{ route('shop.product.show', ['product_slug' => $product->slug]) }}" class="item-image">
+                                            <img src="{{ asset('uploads/products/'.$product->image) }}" alt="{{ $product->name }}" />
+                                            @if ($product->sale)
+                                                <div class="discount">{{ $product->sale }}% OFF</div>
+                                            @endif
+                                        </a>
+                                        <div class="item-info">
+                                            <h4 class="item-title">
+                                                <a href="{{ route('shop.product.show', ['product_slug' => $product->slug]) }}">
+                                                    {{ $product->name }}<br />{{ Str::of($product->description_1)->words(3, '') }}
+                                                </a>
+                                            </h4>
+                                            <div class="item-price">Rp. {{ number_format($product->sale_price, 2) }}</div>
+                                            @if ($product->sale_price)
+                                                <div class="item-discount-price">Rp. {{ number_format($product->price, 2) }}</div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
-                            <!-- END item -->
-                            <!-- BEGIN item -->
-                            <div class="item item-thumbnail">
-                                <a href="product_detail.html" class="item-image">
-                                    <img src="../assets/img/product/product-apple-tv.png" alt="" />
-                                    <div class="discount">32% OFF</div>
-                                </a>
-                                <div class="item-info">
-                                    <h4 class="item-title">
-                                        <a href="product.html">Apple TV<br />2016</a>
-                                    </h4>
-                                    <p class="item-desc">The future of television is here.</p>
-                                    <div class="item-price">$599.00</div>
-                                    <div class="item-discount-price">$799.00</div>
-                                </div>
-                            </div>
-                            <!-- END item -->
-                            <!-- BEGIN item -->
-                            <div class="item item-thumbnail">
-                                <a href="product_detail.html" class="item-image">
-                                    <img src="../assets/img/product/product-iphone-se.png" alt="" />
-                                    <div class="discount">20% OFF</div>
-                                </a>
-                                <div class="item-info">
-                                    <h4 class="item-title">
-                                        <a href="product.html">iPhone SE<br />32/64Gb</a>
-                                    </h4>
-                                    <p class="item-desc">A big step for small.</p>
-                                    <div class="item-price">$499.00</div>
-                                    <div class="item-discount-price">$599.00</div>
-                                </div>
-                            </div>
-                            <!-- END item -->
-                        </div>
-                        <!-- END item-row -->
-                        <!-- BEGIN item-row -->
-                        <div class="item-row">
-                            <!-- BEGIN item -->
-                            <div class="item item-thumbnail">
-                                <a href="product_detail.html" class="item-image">
-                                    <img src="../assets/img/product/product-apple-watch.png" alt="" />
-                                    <div class="discount">15% OFF</div>
-                                </a>
-                                <div class="item-info">
-                                    <h4 class="item-title">
-                                        <a href="product_detail.html">Apple Watch<br />‏Sport Edition</a>
-                                    </h4>
-                                    <p class="item-desc">You. At a glance.</p>
-                                    <div class="item-price">$399.00</div>
-                                    <div class="item-discount-price">$453.00</div>
-                                </div>
-                            </div>
-                            <!-- END item -->
-                            <!-- BEGIN item -->
-                            <div class="item item-thumbnail">
-                                <a href="product_detail.html" class="item-image">
-                                    <img src="../assets/img/product/product-imac.png" alt="" />
-                                    <div class="discount">32% OFF</div>
-                                </a>
-                                <div class="item-info">
-                                    <h4 class="item-title">
-                                        <a href="product.html">21.5-inch iMac<br />with Retina Display</a>
-                                    </h4>
-                                    <p class="item-desc">Retina. Now in colossal and ginormous.</p>
-                                    <div class="item-price">$599.00</div>
-                                    <div class="item-discount-price">$799.00</div>
-                                </div>
-                            </div>
-                            <!-- END item -->
-                            <!-- BEGIN item -->
-                            <div class="item item-thumbnail">
-                                <a href="product_detail.html" class="item-image">
-                                    <img src="../assets/img/product/product-macbook-pro.png" alt="" />
-                                    <div class="discount">20% OFF</div>
-                                </a>
-                                <div class="item-info">
-                                    <h4 class="item-title">
-                                        <a href="product.html">MacBook Pro<br />with Retina Display</a>
-                                    </h4>
-                                    <p class="item-desc">Stunning Retina Display</p>
-                                    <div class="item-price">$99.00</div>
-                                    <div class="item-discount-price">$199.00</div>
-                                </div>
-                            </div>
-                            <!-- END item -->
-                        </div>
-                        <!-- END item-row -->
-                        <!-- BEGIN item-row -->
-                        <div class="item-row">
-                            <!-- BEGIN item -->
-                            <div class="item item-thumbnail">
-                                <a href="product_detail.html" class="item-image">
-                                    <img src="../assets/img/product/product-ipad-pro.png" alt="" />
-                                    <div class="discount">15% OFF</div>
-                                </a>
-                                <div class="item-info">
-                                    <h4 class="item-title">
-                                        <a href="product_detail.html">9.7-inch iPad Pro<br />32GB</a>
-                                    </h4>
-                                    <p class="item-desc">3D Touch. 12MP photos. 4K video.</p>
-                                    <div class="item-price">$649.00</div>
-                                    <div class="item-discount-price">$739.00</div>
-                                </div>
-                            </div>
-                            <!-- END item -->
-                            <!-- BEGIN item -->
-                            <div class="item item-thumbnail">
-                                <a href="product_detail.html" class="item-image">
-                                    <img src="../assets/img/product/product-mac-pro.png" alt="" />
-                                    <div class="discount">32% OFF</div>
-                                </a>
-                                <div class="item-info">
-                                    <h4 class="item-title">
-                                        <a href="product.html">Mac Pro<br />Quad-Core and Dual GPU</a>
-                                    </h4>
-                                    <p class="item-desc">Built for creativity on an epic scale.</p>
-                                    <div class="item-price">$2999.00</div>
-                                    <div class="item-discount-price">$2599.00</div>
-                                </div>
-                            </div>
-                            <!-- END item -->
-                            <!-- BEGIN item -->
-                            <div class="item item-thumbnail">
-                                <a href="product_detail.html" class="item-image">
-                                    <img src="../assets/img/product/product-ipad-air.png" alt="" />
-                                    <div class="discount">20% OFF</div>
-                                </a>
-                                <div class="item-info">
-                                    <h4 class="item-title">
-                                        <a href="product.html">iPad Air 2<br />32/64Gb</a>
-                                    </h4>
-                                    <p class="item-desc">Light. Heavyweight.</p>
-                                    <div class="item-price">$399.00</div>
-                                    <div class="item-discount-price">$459.00</div>
-                                </div>
-                            </div>
-                            <!-- END item -->
-                        </div>
-                        <!-- END item-row -->
+                        @endforeach                            
                     </div>
                     <!-- END search-item-container -->
                     <!-- BEGIN pagination -->
-                    <ul class="pagination justify-content-center m-t-0">
+                    {{-- <ul class="pagination justify-content-center m-t-0">
                         <li class="page-item disabled"><a href="javascript:;" class="page-link">Previous</a></li>
                         <li class="page-item active"><a class="page-link" href="javascript:;">1</a></li>
                         <li class="page-item"><a class="page-link" href="javascript:;">2</a></li>
@@ -478,7 +346,8 @@
                         <li class="page-item"><a class="page-link" href="javascript:;">4</a></li>
                         <li class="page-item"><a class="page-link" href="javascript:;">5</a></li>
                         <li class="page-item"><a class="page-link" href="javascript:;">Next</a></li>
-                    </ul>
+                    </ul> --}}
+                    {{ $products->links() }}
                     <!-- END pagination -->
                 </div>
                 <!-- END search-content -->
@@ -508,12 +377,9 @@
                     </form>
                     <h4 class="title m-b-0">Categories</h4>
                     <ul class="search-category-list">
-                        <li><a href="#">iPhone <span class="pull-right">(10)</span></a></li>
-                        <li><a href="#">Mac <span class="pull-right">(15)</span></a></li>
-                        <li><a href="#">iPad <span class="pull-right">(32)</span></a></li>
-                        <li><a href="#">Watch <span class="pull-right">(4)</span></a></li>
-                        <li><a href="#">TV <span class="pull-right">(6)</span></a></li>
-                        <li><a href="#">Accessories <span class="pull-right">(38)</span></a></li>
+                        @foreach ($categories as $item)
+                        <li><a href="#">{{ $item->name }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
                 <!-- END search-sidebar -->

@@ -181,6 +181,30 @@ class ProductController extends Controller
         return redirect()->route('admin.product')->with('status', 'Product updated successfully.');
     }
 
+    public function update_status(Request $request)
+    {
+        $product = Product::find($request->productId);
+        $product->product_status = $request->productStatus;
+        $product->save();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Product status updated',
+        ]);
+    }
+
+    public function update_stock(Request $request)
+    {
+        $product = Product::find($request->productId);
+        $product->stocks = $request->productStock;
+        $product->save();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Product stock updated',
+        ]);
+    }
+
     /**
      * Remove the specified resource from storage.
      */

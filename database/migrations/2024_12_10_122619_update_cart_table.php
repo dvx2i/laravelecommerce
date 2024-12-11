@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::table('carts', function($table)
         {
             $table->integer('deleted')->default(0);
+            $table->string('snapToken')->nullable();
         });
     }
 

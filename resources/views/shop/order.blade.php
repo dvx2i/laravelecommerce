@@ -27,7 +27,10 @@
                                     <td class="text-center">{{ $item->items()->sum('qty') }}</td>
                                     <td class="text-center">Rp. {{ number_format($item->total_price, 2) }}</td>
                                     <td class="text-center"><span class="total">{{ $item->order_status }}</span></td>
-                                    <td class="text-center">{!! $item->payment_status != 'pending' ? $item->payment_status : '<button type="button" class="btn btn-success">Pay Now</button>' !!}</td>
+                                    <td class="text-center">{!! $item->payment_status != 'pending' 
+                                        ? e($item->payment_status) 
+                                        : '<a href="'. route('shop.order.show', ['order' => $item->id]) .'" class="btn btn-grey"><i class="fa fa-clock"></i> pending</a>' !!}
+                                    </td>
                                     <td><a href="{{ route('shop.order.show', ['order' => $item->id]) }}" class="btn btn-grey">Details</a></td>
                                 </tr>
                             @endforeach

@@ -171,6 +171,18 @@
 							</li>
 						</ul>
 					</li>
+					<li class="{{ Request::segment(2) === 'order' ? 'active' : '' }}">
+						<a href="{{ route('admin.order') }}">
+							<i class="ion-ios-list-box"></i> 
+							<span>Orders</span> 
+						</a>
+					</li>
+					<li class="{{ Request::segment(2) === 'user' ? 'active' : '' }}">
+						<a href="{{ route('admin.user') }}">
+							<i class="ion-ios-person"></i> 
+							<span>Users</span> 
+						</a>
+					</li>
 					
 					<!-- begin sidebar minify button -->
 					<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="ion-ios-arrow-back"></i> <span>Collapse</span></a></li>

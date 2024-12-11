@@ -19,12 +19,8 @@
                 <div class="widget widget-stats bg-white text-inverse">
                     <div class="stats-icon stats-icon-square bg-gradient-blue text-white"><i class="ion-ios-analytics"></i></div>
                     <div class="stats-content">
-                        <div class="stats-title text-inverse-lighter">TODAY'S VISITS</div>
-                        <div class="stats-number">7,842,900</div>
-                        <div class="stats-progress progress">
-                            <div class="progress-bar" style="width: 70.1%;"></div>
-                        </div>
-                        <div class="stats-desc text-inverse-lighter">Better than last week (70.1%)</div>
+                        <div class="stats-title text-inverse-lighter">USERS</div>
+                        <div class="stats-number">{{ $totalUser }}</div>
                     </div>
                 </div>
             </div>
@@ -34,12 +30,8 @@
                 <div class="widget widget-stats bg-white text-inverse">
                     <div class="stats-icon stats-icon-square bg-gradient-blue text-white"><i class="ion-ios-pricetags"></i></div>
                     <div class="stats-content">
-                        <div class="stats-title text-inverse-lighter">TODAY'S PROFIT</div>
-                        <div class="stats-number">180,200</div>
-                        <div class="stats-progress progress">
-                            <div class="progress-bar" style="width: 40.5%;"></div>
-                        </div>
-                        <div class="stats-desc text-inverse-lighter">Better than last week (40.5%)</div>
+                        <div class="stats-title text-inverse-lighter">BRANDS</div>
+                        <div class="stats-number">{{ $totalBrand }}</div>
                     </div>
                 </div>
             </div>
@@ -49,12 +41,8 @@
                 <div class="widget widget-stats bg-white text-inverse">
                     <div class="stats-icon stats-icon-square bg-gradient-blue text-white"><i class="ion-ios-cart"></i></div>
                     <div class="stats-content">
-                        <div class="stats-title text-inverse-lighter">NEW ORDERS</div>
-                        <div class="stats-number">38,900</div>
-                        <div class="stats-progress progress">
-                            <div class="progress-bar" style="width: 76.3%;"></div>
-                        </div>
-                        <div class="stats-desc text-inverse-lighter">Better than last week (76.3%)</div>
+                        <div class="stats-title text-inverse-lighter">ORDERS</div>
+                        <div class="stats-number">{{ $totalOrder }}</div>
                     </div>
                 </div>
             </div>
@@ -64,12 +52,8 @@
                 <div class="widget widget-stats bg-white text-inverse">
                     <div class="stats-icon stats-icon-square bg-gradient-blue text-white"><i class="ion-ios-chatboxes"></i></div>
                     <div class="stats-content">
-                        <div class="stats-title text-inverse-lighter">NEW COMMENTS</div>
-                        <div class="stats-number">3,988</div>
-                        <div class="stats-progress progress">
-                            <div class="progress-bar" style="width: 54.9%;"></div>
-                        </div>
-                        <div class="stats-desc text-inverse-lighter">Better than last week (54.9%)</div>
+                        <div class="stats-title text-inverse-lighter">PRODUCTS</div>
+                        <div class="stats-number">{{ $totalProduct }}</div>
                     </div>
                 </div>
             </div>

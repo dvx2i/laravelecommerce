@@ -7,8 +7,7 @@
     <div class="container">
         <!-- BEGIN checkout -->
         <div class="checkout">
-            <form action="{{ route('shop.order.store') }}" method="POST">
-                @csrf
+            <form method="POST">
                 <!-- BEGIN checkout-body -->
                 <div class="checkout-body">
                     <div class="table-responsive">
@@ -79,6 +78,14 @@
                     </div>
                 </div>
                 <!-- END checkout-body -->
+                <!-- BEGIN checkout-footer -->
+                <div class="checkout-footer">
+                    <a href="{{ route('shop.product') }}" class="btn btn-white btn-lg pull-left btn-theme">CONTINUE SHOPPING</a>
+                    @if ($order->payment_status == 'pending')
+                    <button type="button" class="btn btn-success btn-lg btn-theme width-200" id="pay-button">PAY NOW</button>
+                    @endif
+                </div>
+                <!-- END checkout-footer -->
                 
             </form>
         </div>
@@ -88,3 +95,28 @@
 </div>
 <!-- END #checkout-cart -->
 @endsection
+
+@push('scripts')
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}"></script>
+    <script>
+        $(document).ready(function () {
+            document.getElementById('pay-button').onclick = function(){
+                // SnapToken acquired from previous step
+                snap.pay('{{ $order->snapToken }}', {
+                // Optional
+                onSuccess: function(result){
+                    window.location.href = "{{ route('shop.order.success', ['order' => $order->snapToken]) }}"
+                },
+                // Optional
+                onPending: function(result){
+                    /* You may add your own js here, this is just example */ document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
+                },
+                // Optional
+                onError: function(result){
+                    /* You may add your own js here, this is just example */ document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
+                }
+                });
+            };
+        });
+    </script>
+@endpush

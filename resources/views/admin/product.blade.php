@@ -70,8 +70,11 @@
                                     <td>{{ $item->slug }}</td>
                                     <td>{{ $item->price }}</td>
                                     <td>{{ $item->sale }} %</td>
-                                    <td>{{ $item->stocks }}</td>
-                                    <td><span class="badge {{ $item->product_status == 'active' ? 'badge-success' : 'badge-secondary' }}">{{ $item->product_status }}</span></td>
+                                    <td> <a href="javascript:;" class="product_stock" data-type="number" data-pk="{{ $item->id }}" data-value="{{ $item->stocks }}" data-title="Stocks"></td>
+                                    <td>
+                                        {{-- <span class="badge {{ $item->product_status == 'active' ? 'badge-success' : 'badge-secondary' }}">{{ $item->product_status }}</span> --}}
+                                        <a href="javascript:;" class="product_status" data-type="select" data-pk="{{ $item->id }}" data-value="{{ $item->product_status }}" data-title="Select Product Status">
+                                    </td>
                                     <td class="with-btn" nowrap="">
                                         <div style="display: flex; gap: 8px;">
                                             <a href="{{ route('admin.product.edit', ['product' => $item->id]) }}" class="btn btn-sm btn-primary width-60 m-r-2">Edit</a>
@@ -105,6 +108,13 @@
 @endsection
 
 @push('scripts')
+    <script src="{{ asset('backend') }}/assets/plugins/jquery-migrate/dist/jquery-migrate.min.js"></script>
+    <script src="{{ asset('backend') }}/assets/plugins/x-editable-bs4/dist/bootstrap4-editable/js/bootstrap-editable.min.js"></script>
+    <script src="{{ asset('backend') }}/assets/plugins/x-editable-bs4/dist/inputs-ext/address/address.js"></script>
+    <script src="{{ asset('backend') }}/assets/plugins/x-editable-bs4/dist/inputs-ext/typeaheadjs/lib/typeahead.js"></script>
+    <script src="{{ asset('backend') }}/assets/plugins/x-editable-bs4/dist/inputs-ext/typeaheadjs/typeaheadjs.js"></script>
+    <script src="{{ asset('backend') }}/assets/plugins/x-editable-bs4/dist/inputs-ext/wysihtml5/wysihtml5.js"></script>
+    <script src="{{ asset('backend/assets/plugins/sweetalert/dist/sweetalert.min.js') }}"></script>
     <script src="{{ asset('backend/assets/plugins/sweetalert/dist/sweetalert.min.js') }}"></script>
     <script>
         function deleteProduct(e) {
@@ -136,6 +146,75 @@
                 form.submit();
             }
         });
-        }
+    }
+        
+    $(document).ready(function () {
+        // Set up CSRF token for all AJAX requests
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $('.product_status').editable({
+            source: [
+                { value: 'active', text: 'active' },
+                { value: 'inactive', text: 'inactive' },
+            ],
+            display: function(value, sourceData) {
+                var icons = {'active': '<i class="fa fa-check m-r-5"></i>', 'inactive': '<i class="fa fa-times m-r-5"></i>' };
+                var elem = $.grep(sourceData, function(o) { return o.value == value; });
+
+                if (elem.length) {
+                    $(this).text(elem[0].text).prepend(icons[value]);
+                } else {
+                    $(this).empty();
+                }
+            },
+            url: '{{ route('admin.product.update_status') }}', // URL for your AJAX request
+            type: 'POST', // HTTP method (e.g., POST, PUT)
+            params: function(params) {
+                // Customize parameters sent to the server if needed
+                return {
+                    productId: params.pk, // Primary key of the record
+                    productStatus: params.value // New value of the editable field
+                };
+            },
+            success: function(response, newValue) {
+                // Handle successful update
+                console.log('Update successful:', response);
+            },
+            error: function(xhr, status, error) {
+                // Handle error during update
+                console.error('Update failed:', error);
+            }
+        });
+
+        $('.product_stock').editable({
+            validate: function(value) {
+                if($.trim(value) === '') { 
+                    return 'This field is requiCOLOR_RED';
+                }
+            },
+            url: '{{ route('admin.product.update_stock') }}', // URL for your AJAX request
+            type: 'POST', // HTTP method (e.g., POST, PUT)
+            params: function(params) {
+                // Customize parameters sent to the server if needed
+                return {
+                    productId: params.pk, // Primary key of the record
+                    productStock: params.value // New value of the editable field
+                };
+            },
+            success: function(response, newValue) {
+                // Handle successful update
+                console.log('Update successful:', response);
+            },
+            error: function(xhr, status, error) {
+                // Handle error during update
+                console.error('Update failed:', error);
+            }
+        });
+    });
+
     </script>
 @endpush
